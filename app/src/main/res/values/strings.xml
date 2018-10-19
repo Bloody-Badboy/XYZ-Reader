@@ -1,0 +1,17 @@
+<resources>
+
+  <string name="app_name">XYZ Reader</string>
+
+  <string name="action_refresh">Refresh</string>
+  <string name="action_share">Share</string>
+
+  <string name="desc_app_logo">App Logo</string>
+
+  <string name="desc_article_thumbnail">Article Thumbnail</string>
+
+  <string name="transition_thumb">transition_thumb_%d</string>
+  <string name="error_msg_no_internet">Couldn\'t connect to the internet. Please check your connection settings and try again.</string>
+  <string name="error_msg_enexpected">We have encountered an unexpected error while loading articles.</string>
+  <string name="retry">RETRY</string>
+
+</resources>

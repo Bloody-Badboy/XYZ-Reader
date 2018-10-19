@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+  <data>
+
+    <import type="com.example.xyzreader.utils.DateUtil"/>
+    <variable
+        name="article"
+        type="com.example.xyzreader.data.model.Article"
+        />
+  </data>
+
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:id="@+id/coordinator_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="@dimen/appbar_elevation"
+        >
+
+      <com.google.android.material.appbar.CollapsingToolbarLayout
+          android:id="@+id/collapsing"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/collapsing_toolbar_height"
+          android:theme="@style/ThemeOverlay.AppCompat.Light"
+          app:contentScrim="?colorPrimary"
+          app:layout_scrollFlags="scroll|exitUntilCollapsed"
+          app:title="@{article.title}"
+          >
+
+        <ImageView
+            android:id="@+id/article_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/desc_article_thumbnail"
+            android:scaleType="centerCrop"
+            android:tint="#50FFFFFF"
+            app:imageUrl="@{article.photo}"
+            />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@null"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@{article.title}"
+            />
+      </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/details_card_margin"
+        android:scrollbars="none"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/default_card_radius"
+        app:cardElevation="@dimen/default_card_elevation"
+        app:contentPaddingBottom="@dimen/details_content_padding"
+        app:contentPaddingLeft="@dimen/details_content_padding"
+        app:contentPaddingRight="@dimen/details_content_padding"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:clipToPadding="false"
+          android:overScrollMode="never"
+          android:scrollbarStyle="outsideOverlay"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          tools:itemCount="4"
+          tools:listitem="@layout/list_item_article"
+          />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/share_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/details_fab_margin"
+        android:layout_marginRight="@dimen/details_fab_margin"
+        android:elevation="@dimen/default_fab_elevation"
+        app:srcCompat="@drawable/ic_share"
+        tools:ignore="RtlHardcoded"
+        />
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

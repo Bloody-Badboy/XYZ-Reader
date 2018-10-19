@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+  <data>
+    <import type="com.example.xyzreader.utils.DateUtil"/>
+    <variable
+        name="article"
+        type="com.example.xyzreader.data.model.Article"
+        />
+  </data>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/card_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/space_very_small"
+      android:clickable="true"
+      android:focusable="true"
+      android:orientation="vertical"
+      app:cardCornerRadius="@dimen/default_card_radius"
+      app:cardElevation="@dimen/default_card_elevation"
+      app:cardUseCompatPadding="false"
+      >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+      <ImageView
+          android:id="@+id/article_thumb"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:contentDescription="@string/desc_article_thumbnail"
+          android:scaleType="centerCrop"
+          app:contentBackground="@{articleInfoBackground}"
+          app:imageUrl="@{article.thumb}"
+          app:layout_constraintDimensionRatio="2:3"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:srcCompat="@drawable/generic_placeholder"
+          />
+
+      <View
+          android:id="@+id/article_info_background"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:background="@drawable/default_movie_info_background"
+          app:layout_constraintBottom_toBottomOf="@+id/article_thumb"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/article_title"
+          />
+      <TextView
+          android:id="@+id/article_title"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/space_very_small"
+          android:layout_marginStart="@dimen/space_small"
+          android:ellipsize="marquee"
+          android:fadingEdge="horizontal"
+          android:marqueeRepeatLimit="marquee_forever"
+          android:paddingTop="@dimen/space_very_small"
+          android:scrollHorizontally="true"
+          android:singleLine="true"
+          android:text="@{article.title}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+          app:layout_constraintBottom_toTopOf="@+id/article_author"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:text="Lorem ipsum dolor sit amet"
+          />
+      <TextView
+          android:id="@+id/article_author"
+          android:layout_width="wrap_content"
+          android:layout_height="0dp"
+          android:layout_marginBottom="@dimen/space_very_small"
+          android:layout_marginStart="@dimen/space_small"
+          android:text="@{article.author}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+          app:layout_constraintBottom_toTopOf="@+id/article_publish_date"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:text="Lorem ipsum"
+          />
+      <TextView
+          android:id="@+id/article_publish_date"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/space_very_small"
+          android:layout_marginStart="@dimen/space_small"
+          android:paddingBottom="@dimen/space_very_small"
+          android:text="@{DateUtil.getHumanReadableDate(article.publishedDate)}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+          app:layout_constraintBottom_toBottomOf="@+id/article_thumb"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:text="Jan 1, 1970"
+          />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+</layout>

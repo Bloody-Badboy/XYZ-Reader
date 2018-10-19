@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+  <com.facebook.shimmer.ShimmerFrameLayout
+      android:id="@+id/shimmer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_very_small"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/default_card_radius"
+        app:cardElevation="@dimen/default_card_elevation"
+        app:cardUseCompatPadding="false"
+        >
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="2:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/space_small"
+            android:layout_marginEnd="@dimen/space_small"
+            android:layout_marginStart="@dimen/space_small"
+            android:layout_marginTop="@dimen/space_small"
+            android:background="@drawable/round_corner_rect"
+            app:layout_constraintBottom_toTopOf="@+id/view5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="@dimen/placeholder_title_width"
+            android:layout_height="@dimen/space_default"
+            android:layout_marginBottom="@dimen/space_small"
+            android:layout_marginStart="@dimen/space_small"
+            android:background="@drawable/round_corner_rect"
+            app:layout_constraintBottom_toTopOf="@+id/view4"
+            app:layout_constraintDimensionRatio=""
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="@dimen/placeholder_author_width"
+            android:layout_height="@dimen/space_default"
+            android:layout_marginBottom="@dimen/space_small"
+            android:layout_marginStart="@dimen/space_small"
+            android:background="@drawable/round_corner_rect"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintDimensionRatio=""
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="@dimen/placeholder_date_width"
+            android:layout_height="@dimen/space_default"
+            android:layout_marginBottom="@dimen/space_small"
+            android:layout_marginStart="@dimen/space_small"
+            android:background="@drawable/round_corner_rect"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintDimensionRatio=""
+            app:layout_constraintStart_toStartOf="parent"
+            />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+  </com.facebook.shimmer.ShimmerFrameLayout>
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="toolbar_elevation">4dp</dimen>
+  <dimen name="appbar_elevation">4dp</dimen>
+  <dimen name="app_logo_height">40dp</dimen>
+  <dimen name="collapsing_toolbar_height">300dp</dimen>
+  <dimen name="details_fab_margin">32dp</dimen>
+  <dimen name="default_elevation">8dp</dimen>
+  <dimen name="details_content_padding">16dp</dimen>
+  <dimen name="default_card_radius">4dp</dimen>
+  <dimen name="default_card_elevation">1dp</dimen>
+  <dimen name="details_card_margin">8dp</dimen>
+  <dimen name="space_very_small">4dp</dimen>
+  <dimen name="space_small">8dp</dimen>
+  <dimen name="space_default">16dp</dimen>
+  <dimen name="placeholder_title_width">108dp</dimen>
+  <dimen name="placeholder_author_width">72dp</dimen>
+  <dimen name="placeholder_date_width">120dp</dimen>
+  <dimen name="default_fab_elevation">6dp</dimen>
+</resources>

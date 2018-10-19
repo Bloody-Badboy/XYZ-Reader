@@ -1,0 +1,76 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+  <data>
+
+    <variable
+        name="viewModel"
+        type="com.example.xyzreader.ui.articles.ArticleListViewModel"
+        />
+
+  </data>
+
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:id="@+id/coordinator_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:elevation="0dp"
+        >
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          android:background="@android:color/transparent"
+          app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+          >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+          <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="@dimen/app_logo_height"
+              android:layout_gravity="center"
+              android:contentDescription="@string/desc_app_logo"
+              android:scaleType="fitCenter"
+              app:srcCompat="@drawable/logo"
+              app:tint="@android:color/black"
+              />
+        </FrameLayout>
+      </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:onRefreshListener="@{() -> viewModel.onSwipeRefresh()}"
+        app:refreshing="@{viewModel.swipeRefreshing}"
+        >
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:clipToPadding="false"
+          android:layoutAnimation="@anim/layout_animation_from_bottom"
+          android:overScrollMode="never"
+          android:scrollbarStyle="outsideOverlay"
+          app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+          tools:itemCount="4"
+          tools:listitem="@layout/list_item_article"
+          tools:spanCount="2"
+          />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
